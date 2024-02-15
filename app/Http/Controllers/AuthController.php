@@ -30,7 +30,11 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthorized','message' => 'Usuario no registrado'], 401);
         }
 
-        return response()->json(['Token' => $this->GenerateToken($user)],400);
+        return response()->json([
+            'Token' => $this->GenerateToken($user),
+            'Create' => date('Y-m-d h:i:s',time()),
+            'Expires' => date('Y-m-d h:i:s',time() + 3600),
+        ],400);
 
     }
     protected function GenerateToken(User $user){

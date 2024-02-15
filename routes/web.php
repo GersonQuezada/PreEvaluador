@@ -20,10 +20,9 @@ $router->post('/auth/login',
 $router->group(
     ['middleware' => 'jwt.auth'],
         function () use ($router) {
-            $router->get('/users', ['uses' => 'AuthController@Users' ]);
+            $router->get('/Users/ListUsers', ['uses' => 'UserController@ListUsers']);
 
-
-
+            $router->post('/PreEvaludor/Insert',['uses' => 'PreEvaluadorController@Register']);
         }
 );
 
