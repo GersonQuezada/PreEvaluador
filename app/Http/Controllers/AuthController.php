@@ -43,18 +43,22 @@ class AuthController extends Controller
             'host' => 'http://credimujer.com',
             'Sub-Dominio' => 'http://aplativos.credimujer.com',
             'create_in' => time(),
-            'expires_in' => time() * 60,
+            'expires_in' => time() + 3600 ,
             'User_Auth' => $user->email
         ];
         $jwt = JWT::encode($payload, $key, 'HS256');
-        // return response()->json(['error' => 'Unauthorized','message' => 'Usuario no registrado'], 401);
-
-
-        return  [
-            'access_token' => $jwt,
-            'token_type' => 'bearer',
-            'expires_in' =>  date('d/M/Y H:i:s',$payload['expires_in'])
-        ];
+        
+        return  ['message' => 'Login ok',
+                    'dataToken' => [
+                        'access_token' => $jwt,
+                        'token_type' => 'bearer',
+                        'create_in' => date("d/M/Y H:i:s",$payload['create_in']),
+                        'expires_in' => date("d/M/Y H:i:><",$payload['expires_in'])
+                    ]
+                ];
         // $decoded = JWT::decode($jwt, new Key($key, 'HS256'));
+    }
+    public function Users(){
+        
     }
 }
