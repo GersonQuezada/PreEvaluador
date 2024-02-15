@@ -13,12 +13,18 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+
+$router->post('/auth/login',
+['uses' => 'AuthController@Autenticate']);
+
+$router->group(
+    ['middleware' => 'jwt.auth'],
+        function () use ($router) {
+            $router->get('/users', ['uses' => 'AuthController@Users' ]);
 
 
-$router->post('/login',['uses' => 'AuthController@login', 'as' => 'Login']);
+
+        }
+);
 
 
-$router->get('/users',['middleware'=> 'auth','uses' => 'AuthController@Users' ]);
