@@ -24,12 +24,15 @@ class AuthController extends Controller
             'required' => 'El campo :attribute es requerido para autenticacion del usuario.'
         ]);
 
-        $user = User::where('login', $this->request->login)->where('pswd',$this->request->pswd)->first();
-
+        $user = User::where('login', $this->request->login)
+                        ->first();
         if(!$user){
             return response()->json(['error' => 'Unauthorized','message' => 'Usuario no registrado'], 401);
         }
-
+        if($user->pswd <> $this->request->pswd){
+            return response()->json(['error' => 'Unauthorized','message' => 'El pswd es incorrecta.'], 401);
+        }
+        
         return response()->json([
             'Token' => $this->GenerateToken($user),
             'Create' => date('Y-m-d h:i:s',time()),
@@ -45,8 +48,5 @@ class AuthController extends Controller
             'exp' => time() + 3600 ,
         ];
         return JWT::encode($payload,env('JWT_KEY'), 'HS256');
-    }
-    public function Users(){
-        return ['users' => User::all()];
-    }
+    }    
 }
