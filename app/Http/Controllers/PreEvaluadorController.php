@@ -41,7 +41,7 @@ class PreEvaluadorController extends Controller{
             return response()->json(['error' => true, 'message' => 'Ya existe un Pre Evaluador del mismo dia'
                                     ],400);
         }
-
+        
 
     }
 

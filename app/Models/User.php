@@ -14,6 +14,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     use Authenticatable, Authorizable, HasFactory;
 
     protected $table = 'sec_users';
+    // protected $primaryKey = 'flight_id';
     // /**
     //  * The attributes that are mass assignable.
     //  *

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PreEvaluador extends Model{
 
     // use HasFactory;
-    protected $table = "RSG_PREEVALUADOR";
+    protected $table = "RSG_PRE_EVALUADOR";
 
     protected $fillable = [
         'CODPREEVALUADOR',
