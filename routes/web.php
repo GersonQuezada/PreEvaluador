@@ -20,7 +20,11 @@ $router->post('/auth/login',
 $router->group(
     ['middleware' => 'jwt.auth'],
         function () use ($router) {
+
+
+
             $router->get('/Users/ListUsers', ['uses' => 'UserController@ListUsers']);
+            $router->get('/Users/ListBancos', ['uses' => 'UserController@ListBancos']);
 
             $router->post('/PreEvaludor/Insert',['uses' => 'PreEvaluadorController@Register']);
         }

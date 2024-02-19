@@ -38,7 +38,7 @@ class JwtMiddleware
                 'error' => 'Algo ha ocurrido al decodear el token'
             ],400);
         }
-        $user = User::where('email',$credentials->sub);
+        $user = User::where('email',$credentials->sub)->first();
         $request->auth = $user;
         return $next($request);
     }
