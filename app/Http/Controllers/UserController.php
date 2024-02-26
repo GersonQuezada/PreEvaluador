@@ -31,4 +31,9 @@ class UserController extends Controller{
         return response()->json($resultado);
     }
 
+    public function ListPromotor(){
+        $Promotores = DB::select("SELECT * FROM SFD_OFICIALESCREDITO WHERE BAJA = 'N'");
+        return response()->json( $Promotores );
+    }
+
 }

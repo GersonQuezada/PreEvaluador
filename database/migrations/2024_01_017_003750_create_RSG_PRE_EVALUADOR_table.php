@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RSG_PRE_EVALUADOR extends Migration{
+return new class extends Migration{
     
     public function up(){
         Schema::create('RSG_PRE_EVALUADOR', function (Blueprint $table) {
@@ -26,14 +26,14 @@ class RSG_PRE_EVALUADOR extends Migration{
             $table->double('CapacidadPago')->default('0.00');
             $table->string('CodRegion')->default('000');
             $table->string('Orden')->default('0');
-            $table->dateTime('FechaRegistro')->default('2000-01-01');
-            $table->dateTime('FechaVigencia')->default('2000-01-01');
-            $table->foreignIdFor(PreEvaluador::class,'id_PreEvaluador_Padre')->constrained();
-            $table->foreignIdFor(User::class,'id_Usuario_creacion')->constrained();
+            $table->date('FechaRegistro')->default('2000-01-01');
+            $table->date('FechaVigencia')->default('2000-01-01');
+            $table->string('id_PreEvaluador_Padre')->default('0');   
+            $table->string('Usuario_creacion')->default('SYSTEM'); 
         });
     }
 
     public function down(){
         Schema::dropIfExists('RSG_PRE_EVALUADOR');
     }
-}
+};

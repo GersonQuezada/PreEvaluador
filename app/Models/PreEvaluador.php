@@ -10,25 +10,25 @@ class PreEvaluador extends Model{
     protected $table = "RSG_PRE_EVALUADOR";
 
     protected $fillable = [
-        'CODPREEVALUADOR',
-        'nombrecompleto',
-        'dni',
-        'bancocomunal',
-        'fecha',
-        'asesor',
-        'monto',
-        'plazo',
-        'cuota',
-        'nivelriesgo',
-        'subneto',
-        'deudaexterna',
-        'ingresoneto',
-        'capacidadpago',
-        'CODREGION',
-        'fechamodificada',
-        'fechamodi_actual',
-        'FECHAVIGENCIA'
+        'DNI',
+        'NombreSocia',
+        'CodAsociacion',
+        'DesAsociacion',
+        'NombrePromotora',
+        'Cuota',
+        'Plazo',
+        'Monto',
+        'NivelRiesgo',
+        'SubNeto',
+        'IngresoNeto',
+        'DeudaExterna',
+        'CapacidadPago',
+        'CodRegion',
+        'Orden',
+        'FechaRegistro',
+        'FechaVigencia',
+        'Usuario_creacion'
     ];
 
-    // public $timestamps = false;
+    public $timestamps = false;
 }

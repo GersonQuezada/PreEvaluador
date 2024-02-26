@@ -24,7 +24,7 @@ $router->group(
             $router->get('/Users/ListBancos', ['uses' => 'UserController@ListBancos']);
             $router->get('/Users/ListPromotor',['uses' => 'UserController@ListPromotor']);
 
-            $router->post('/PreEvaludor/Insert',['uses' => 'PreEvaluadorController@Register']);
+            $router->post('/PreEvaluador/Insert',['uses' => 'PreEvaluadorController@Register']);
         }
 );
 
