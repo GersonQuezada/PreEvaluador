@@ -1,0 +1,600 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Swagger Pre Evaluador",
+        "description": "Lista de todos las Rest Api's para Pre Evaluador",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "gerson.quezada@manuela.org.pe"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "LoginUser",
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "type": "string"
+                                    },
+                                    "pswd": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "type": "string"
+                                    },
+                                    "pswd": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "type": "string"
+                                    },
+                                    "pswd": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/PreEvaluador/Insert": {
+            "post": {
+                "tags": [
+                    "Pre Evaluador"
+                ],
+                "operationId": "preEvaluador_register",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "NombreSocia": {
+                                        "type": "string"
+                                    },
+                                    "DNI": {
+                                        "type": "string",
+                                        "maxLength": 12
+                                    },
+                                    "CodAsociacion": {
+                                        "type": "string"
+                                    },
+                                    "DesAsociacion": {
+                                        "type": "string"
+                                    },
+                                    "FechaRegistro": {
+                                        "type": "string"
+                                    },
+                                    "NombrePromotora": {
+                                        "type": "string"
+                                    },
+                                    "Monto": {
+                                        "type": "number"
+                                    },
+                                    "Plazo": {
+                                        "type": "string"
+                                    },
+                                    "Cuota": {
+                                        "type": "number"
+                                    },
+                                    "NivelRiesgo": {
+                                        "type": "string"
+                                    },
+                                    "SubNeto": {
+                                        "type": "number"
+                                    },
+                                    "DeudaExterna": {
+                                        "type": "number"
+                                    },
+                                    "IngresoNeto": {
+                                        "type": "number"
+                                    },
+                                    "CapacidadPago": {
+                                        "type": "number"
+                                    },
+                                    "CodRegion": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_1": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_2": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_3": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_4": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_5": {
+                                        "type": "string"
+                                    },
+                                    "Marg_Util_1": {
+                                        "type": "number"
+                                    },
+                                    "Marg_Util_2": {
+                                        "type": "number"
+                                    },
+                                    "Marg_Util_3": {
+                                        "type": "number"
+                                    },
+                                    "Marg_Util_4": {
+                                        "type": "number"
+                                    },
+                                    "Marg_Util_5": {
+                                        "type": "number"
+                                    },
+                                    "Frec_Econ_1": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_2": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_3": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_4": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_5": {
+                                        "type": "string"
+                                    },
+                                    "Vent_Max_1": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Max_2": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Max_3": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Max_4": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Max_5": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Min_1": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Min_2": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Min_3": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Min_4": {
+                                        "type": "number"
+                                    },
+                                    "Vent_Min_5": {
+                                        "type": "number"
+                                    },
+                                    "Result_1": {
+                                        "type": "number"
+                                    },
+                                    "Result_2": {
+                                        "type": "number"
+                                    },
+                                    "Result_3": {
+                                        "type": "number"
+                                    },
+                                    "Result_4": {
+                                        "type": "number"
+                                    },
+                                    "Result_5": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "properties": {
+                                    "NombreSocia": {
+                                        "type": "string"
+                                    },
+                                    "DNI": {
+                                        "type": "string"
+                                    },
+                                    "CodAsociacion": {
+                                        "type": "string"
+                                    },
+                                    "DesAsociacion": {
+                                        "type": "string"
+                                    },
+                                    "FechaRegistro": {
+                                        "type": "string"
+                                    },
+                                    "NombrePromotora": {
+                                        "type": "string"
+                                    },
+                                    "Monto": {
+                                        "type": "numeric"
+                                    },
+                                    "Plazo": {
+                                        "type": "string"
+                                    },
+                                    "Cuota": {
+                                        "type": "numeric"
+                                    },
+                                    "NivelRiesgo": {
+                                        "type": "string"
+                                    },
+                                    "SubNeto": {
+                                        "type": "numeric"
+                                    },
+                                    "DeudaExterna": {
+                                        "type": "numeric"
+                                    },
+                                    "IngresoNeto": {
+                                        "type": "numeric"
+                                    },
+                                    "CapacidadPago": {
+                                        "type": "numeric"
+                                    },
+                                    "CodRegion": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_1": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_2": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_3": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_4": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_5": {
+                                        "type": "string"
+                                    },
+                                    "Marg_Util_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_5": {
+                                        "type": "numeric"
+                                    },
+                                    "Frec_Econ_1": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_2": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_3": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_4": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_5": {
+                                        "type": "string"
+                                    },
+                                    "Vent_Max_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_5": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_5": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_5": {
+                                        "type": "numeric"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "NombreSocia": {
+                                        "type": "string"
+                                    },
+                                    "DNI": {
+                                        "type": "string"
+                                    },
+                                    "CodAsociacion": {
+                                        "type": "string"
+                                    },
+                                    "DesAsociacion": {
+                                        "type": "string"
+                                    },
+                                    "FechaRegistro": {
+                                        "type": "string"
+                                    },
+                                    "NombrePromotora": {
+                                        "type": "string"
+                                    },
+                                    "Monto": {
+                                        "type": "numeric"
+                                    },
+                                    "Plazo": {
+                                        "type": "string"
+                                    },
+                                    "Cuota": {
+                                        "type": "numeric"
+                                    },
+                                    "NivelRiesgo": {
+                                        "type": "string"
+                                    },
+                                    "SubNeto": {
+                                        "type": "numeric"
+                                    },
+                                    "DeudaExterna": {
+                                        "type": "numeric"
+                                    },
+                                    "IngresoNeto": {
+                                        "type": "numeric"
+                                    },
+                                    "CapacidadPago": {
+                                        "type": "numeric"
+                                    },
+                                    "CodRegion": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_1": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_2": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_3": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_4": {
+                                        "type": "string"
+                                    },
+                                    "Act_Econ_5": {
+                                        "type": "string"
+                                    },
+                                    "Marg_Util_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Marg_Util_5": {
+                                        "type": "numeric"
+                                    },
+                                    "Frec_Econ_1": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_2": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_3": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_4": {
+                                        "type": "string"
+                                    },
+                                    "Frec_Econ_5": {
+                                        "type": "string"
+                                    },
+                                    "Vent_Max_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Max_5": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Vent_Min_5": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_1": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_2": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_3": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_4": {
+                                        "type": "numeric"
+                                    },
+                                    "Result_5": {
+                                        "type": "numeric"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/Users/ListUsers": {
+            "get": {
+                "tags": [
+                    "Usuario"
+                ],
+                "summary": "Lista de Usuarios",
+                "operationId": "List_Users",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/Users/ListBancos": {
+            "get": {
+                "tags": [
+                    "Usuario"
+                ],
+                "summary": "Lista de Bancos Comunales",
+                "operationId": "List_Bancos",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/Users/ListPromotor": {
+            "get": {
+                "tags": [
+                    "Usuario"
+                ],
+                "summary": "Lista de Promotores",
+                "operationId": "List_Promotores",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": " Use /auth to get the JWT token",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

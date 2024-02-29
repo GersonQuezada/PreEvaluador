@@ -13,6 +13,7 @@
 |
 */
 
+// $router->get('/usuarios',['uses' => 'UserController@prueba']);
 
 $router->post('/auth/login',
 ['uses' => 'AuthController@Autenticate']);
@@ -20,6 +21,7 @@ $router->post('/auth/login',
 $router->group(
     ['middleware' => 'jwt.auth'],
         function () use ($router) {
+            $router->get('/usuarios',['uses' => 'UserController@prueba']);
             $router->get('/Users/ListUsers', ['uses' => 'UserController@ListUsers']);
             $router->get('/Users/ListBancos', ['uses' => 'UserController@ListBancos']);
             $router->get('/Users/ListPromotor',['uses' => 'UserController@ListPromotor']);

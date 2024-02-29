@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+    
     private $request;
 
     public function __construct(Request $request)
@@ -16,6 +17,33 @@ class AuthController extends Controller
         $this->request = $request;
     }
 
+    /**
+    * @OA\Post(path="/auth/login", tags={"Auth"},operationId="LoginUser",
+    * @OA\Response (response="200", description="Success"),
+    * @OA\Response (response="404", description="Not Found"),
+    * @OA\RequestBody(
+    *       required = false,
+    *       @OA\MediaType(
+    *           mediaType="application/json",
+    *           @OA\Schema(
+    *           @OA\Property(property="login", type="string"), 
+    *           @OA\Property(property="pswd", type="string"))   
+    *       ),
+    *       @OA\MediaType(
+    *           mediaType="application/xml",
+    *           @OA\Schema(
+    *           @OA\Property(property="login", type="string"), 
+    *           @OA\Property(property="pswd", type="string"))   
+    *       ),
+    *       @OA\MediaType(
+    *           mediaType="multipart/form-data",
+    *           @OA\Schema(
+    *           @OA\Property(property="login", type="string"), 
+    *           @OA\Property(property="pswd", type="string"))   
+    *       )
+    *   ),
+    * )
+    */
     public function Autenticate(User $user){
         $this->validate($this->request,[
             'login' => 'required',

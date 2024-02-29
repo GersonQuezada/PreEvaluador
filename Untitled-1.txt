@@ -1,0 +1,18 @@
+*     @OA\Parameter(
+    *         name="login",
+    *         in="query",
+    *         description="The user name for login",
+    *         required=false,
+    *         @OA\Schema(
+    *             type="string"
+    *         )
+    *     ),
+    *      @OA\Parameter(
+    *         name="pswd",
+    *         in="query",
+    *         description="The user name for login",
+    *         required=false,
+    *         @OA\Schema(
+    *             type="string"
+    *         )
+    *     ),

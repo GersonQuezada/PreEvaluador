@@ -14,10 +14,36 @@ class UserController extends Controller{
         $this->request = $request;
     }
 
+    /**
+     * @OA\Get(
+     *     path="/Users/ListUsers",
+     *     tags={"Usuario"},
+     *     summary="Lista de Usuarios",
+     *     operationId="List_Users",
+     *     @OA\Response(
+     *         response="default",
+     *         description="successful operation"
+     *     ),
+     * security={ {"bearerAuth":{}}}
+     * )
+     */
     public function ListUsers(){
         return response()->json( User::all()->where('active','Y'));
     }
 
+    /**
+     * @OA\Get(
+     *     path="/Users/ListBancos",
+     *     tags={"Usuario"},
+     *     summary="Lista de Bancos Comunales",
+     *     operationId="List_Bancos",
+     *     @OA\Response(
+     *         response="default",
+     *         description="successful operation"
+     *     ),
+     * security={ {"bearerAuth":{}}}
+     * )
+     */
     public function ListBancos(){
         $user = $this->request->auth;
         $Regiones = DB::table('sec_users_sucursal')->where('login',$user->login)->get();
@@ -31,6 +57,19 @@ class UserController extends Controller{
         return response()->json($resultado);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/Users/ListPromotor",
+     *     tags={"Usuario"},
+     *     summary="Lista de Promotores",
+     *     operationId="List_Promotores",
+     *     @OA\Response(
+     *         response="default",
+     *         description="successful operation"
+     *     ),
+     * security={ {"bearerAuth":{}}}
+     * )
+     */
     public function ListPromotor(){
         $Promotores = DB::select("SELECT * FROM SFD_OFICIALESCREDITO WHERE BAJA = 'N'");
         return response()->json( $Promotores );
