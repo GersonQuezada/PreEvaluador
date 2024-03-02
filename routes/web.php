@@ -13,7 +13,9 @@
 |
 */
 
-// $router->get('/usuarios',['uses' => 'UserController@prueba']);
+$router->get('/',function(){
+    return response()->json(['Proyecto Pre Evaludor Api Rest'],200);
+});
 
 $router->post('/auth/login',
 ['uses' => 'AuthController@Autenticate']);
