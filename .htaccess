@@ -1,0 +1,8 @@
+
+RewriteEngine On
+RewriteCond %(HTTPS) off
+RewriteCond %(HTTP_HOST) (www\.)
+
+RewriteRule (.*) https://%(HTTP_HOST)$(REQUEST_URI) [L,R=301]
+
+SetEnv ENVIROMENT produccion
