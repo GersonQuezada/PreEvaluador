@@ -1,8 +1,10 @@
 
 RewriteEngine On
 RewriteCond %(HTTPS) off
-RewriteCond %(HTTP_HOST) (www\.)
+RewriteCond %(HTTP_HOST) (www\.)?consultas-api.credimujer.pe
 
 RewriteRule (.*) https://%(HTTP_HOST)$(REQUEST_URI) [L,R=301]
 
 SetEnv ENVIROMENT produccion
+
+RewriteRule ^(.*)$ public/$1 [L]
